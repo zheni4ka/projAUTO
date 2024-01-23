@@ -1,0 +1,61 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.showauto {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border: 3px solid white;
+    border-radius: 10px;
+}
+
+.showauto span {
+    font-weight: 900;
+    margin-inline: auto;
+    margin-top: 5px;
+}
+
+.showauto img {
+    width: 300px;
+    border-radius: 10px;
+}
+
+.price {
+    font-size: 30px;
+    font-weight: 700;
+    color: green;
+    margin-top: -1px;
+    margin-inline: auto;
+}
+
+.showauto p {
+    display: inline;
+}
+
+.showauto button {
+    width: 60%;
+    margin-inline: auto;
+    height: 30px;
+    margin-top: -25px;
+}

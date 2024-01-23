@@ -1,0 +1,15 @@
+﻿@model List<Auto>;
+
+
+@foreach(var i in Model)
+{    
+    <div class="showauto">
+        <img src="./dodgeimg.jfif" alt="">
+        <span>
+            <p></p>
+            <p>(@i.)</p>
+        </span>
+        <p class="price">50000$</p>
+        <button>Learn more</button>
+    </div>
+}
