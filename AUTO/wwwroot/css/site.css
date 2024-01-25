@@ -21,13 +21,17 @@ body {
   margin-bottom: 60px;
 }
 
+
+
 .showauto {
-    width: 40%;
+    width: 20%;
     display: flex;
+    height: 300px;
     flex-direction: column;
     padding: 20px;
-    border: 3px solid white;
+    border: 3px solid black;
     border-radius: 10px;
+    margin: 20px;
 }
 
 .showauto span {
@@ -37,7 +41,8 @@ body {
 }
 
 .showauto img {
-    width: 300px;
+    width: 100%;
+    height: 60%;
     border-radius: 10px;
 }
 
@@ -45,8 +50,11 @@ body {
     font-size: 30px;
     font-weight: 700;
     color: green;
-    margin-top: -1px;
+    margin-top: 5px;
     margin-inline: auto;
+    background: #e5e8c7;
+    border-radius: 10px;
+    height: 20%;
 }
 
 .showauto p {
@@ -57,5 +65,5 @@ body {
     width: 60%;
     margin-inline: auto;
     height: 30px;
-    margin-top: -25px;
+    margin-top: -5px;
 }

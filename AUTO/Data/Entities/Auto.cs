@@ -10,6 +10,7 @@
         public int Price { get; set; }
         public int CompanyId { get; set; }
         public string ImgURL { get; set; }
-        public Auto() {}
+        public Auto() { }
+
     }
 }

@@ -1,0 +1,24 @@
+﻿@model List<Auto>;
+
+<div class="d-flex flex-wrap">
+   @foreach (var i in Model)
+   {
+       <div class="showauto">
+           <img src="@i.ImgURL" alt="">
+           <span>
+                @if(i.Model.Length > 15)
+                {
+                    string tmp = (i.Model.Substring(0, 6) + "...");
+
+                    <p>@i.Mark @tmp (@i.YearRelease)</p>
+                }
+                else 
+                {
+                    <p>@i.Mark @i.Model (@i.YearRelease)</p>
+                }
+           </span>
+           <p class="price">@i.Price $</p>
+           <button>Learn more</button>
+       </div>
+   }
+</div>
