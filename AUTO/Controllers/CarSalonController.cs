@@ -14,9 +14,9 @@ namespace AUTO.Controllers
 
         public IActionResult Index()
         {
-            var products = Context.Autos.ToList();
+            var autos = Context.Autos.ToList();
 
-            return View(products);
+            return View(autos);
         }
 
         public IActionResult Create()
@@ -40,23 +40,25 @@ namespace AUTO.Controllers
 
         public IActionResult Details(int id)
         {
-            var product = Context.Autos.Find(id);
+            var auto = Context.Autos.Find(id);
+            if (auto == null) return NotFound();
 
-            if (product == null) return NotFound();
+            Context.Entry(auto);
 
-            return View(product);
+            return View(auto);
         }
 
-        public IActionResult Delete(int id)
+        public IActionResult Details(int id, string? returnUrl)
         {
-            var product = Context.Autos.Find(id);
+            // get product by ID from the db
+            var auto = Context.Autos.Find(id);
+            if (auto == null) return NotFound();
 
-            if (product == null) return NotFound();
+            // load related entity
+            Context.Entry(auto).Reference(x => x.Company).Load();
 
-            Context.Remove(product);
-            Context.SaveChanges();
-
-            return RedirectToAction(nameof(Index));
+            ViewBag.ReturnUrl = returnUrl;
+            return View(auto);
         }
 
     }

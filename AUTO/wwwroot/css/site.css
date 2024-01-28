@@ -21,6 +21,10 @@ body {
   margin-bottom: 60px;
 }
 
+h1
+{
+    margin-inline: auto;
+}
 
 
 .showauto {
@@ -29,7 +33,7 @@ body {
     height: 300px;
     flex-direction: column;
     padding: 20px;
-    border: 3px solid black;
+    border: 3px solid gray;
     border-radius: 10px;
     margin: 20px;
 }
@@ -42,8 +46,9 @@ body {
 
 .showauto img {
     width: 100%;
-    height: 60%;
+    height: 140px;
     border-radius: 10px;
+    object-fit: cover;
 }
 
 .price {
@@ -55,6 +60,7 @@ body {
     background: #e5e8c7;
     border-radius: 10px;
     height: 20%;
+    padding-inline: 10px;
 }
 
 .showauto p {
@@ -64,6 +70,7 @@ body {
 .showauto button {
     width: 60%;
     margin-inline: auto;
+    border-radius: 5px;
     height: 30px;
     margin-top: -5px;
 }
