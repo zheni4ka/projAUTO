@@ -1,5 +1,5 @@
-﻿using AUTO.Data;
-using AUTO.Data.Entities;
+﻿using DataAccess;
+using DataAccess.Entities;
 using Microsoft.AspNetCore.Mvc;
 namespace AUTO.Controllers
 {

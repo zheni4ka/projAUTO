@@ -1,4 +1,4 @@
-﻿namespace AUTO.Data.Entities
+﻿namespace DataAccess.Entities
 {
     public class Auto
     {

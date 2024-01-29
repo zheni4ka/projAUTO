@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using AUTO.Data.Entities;
-namespace AUTO.Data
+using DataAccess.Entities;
+namespace DataAccess
 {
     public class CarSalonDbContext : DbContext
     {
