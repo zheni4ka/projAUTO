@@ -7,14 +7,14 @@ using BusinessLogic.DTOs;
 
 namespace BusinessLogic.Interfaces
 {
-    public interface IAutosService
+    public interface IAutosServices
     {
         IEnumerable<AutoDto> GetAll();
+        IEnumerable<AutoDto> Get(IEnumerable<int> ids);
         AutoDto? GetById(int id);
-        int GetCount();
-        IEnumerable<CompanyDto> GetCompanies();
-        void Create(CreateAutoModel model);
-        void 
-
+        IEnumerable<CompanyDto> GetAllCompanies();
+        void Create(AutoDto model);
+        void Edit(AutoDto auto);
+        void Remove(int id);
     }
 }
