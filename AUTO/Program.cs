@@ -1,5 +1,6 @@
 using DataAccess;
 using Microsoft.EntityFrameworkCore;
+using BusinessLogic.Validators;
 
 var builder = WebApplication.CreateBuilder(args);
 var connStr = builder.Configuration.GetConnectionString("LocalDb");
@@ -8,6 +9,8 @@ var connStr = builder.Configuration.GetConnectionString("LocalDb");
 // DI - Dependency Injection
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<CarSalonDbContext>(opts => opts.UseSqlServer(connStr));
+
+builder.Services.AddAutoMapper();
 
 
 // Add services to the container.

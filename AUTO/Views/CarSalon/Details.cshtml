@@ -1,2 +1,16 @@
-﻿@model Auto;
+﻿@model AutoDto;
+
+<div class="details">
+    <div class="i">
+        <img src="@Model.ImgURL">
+    </div>
+
+    <div class="info">
+        <span class="titlename">@Model.Mark @Model.Model</span>
+        <span class="price">@Model.Price</span>
+        <span class="smth">Year release...................................................@Model.YearRelease</span>
+        <span class="smth">Total speed...................................................@Model.Speed km/h</span>
+    </div>
+</div>
+<div class="description">@Model.Description</div>
 

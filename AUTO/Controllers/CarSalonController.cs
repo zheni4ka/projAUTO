@@ -1,64 +1,57 @@
 ﻿using DataAccess;
-using DataAccess.Entities;
+using BusinessLogic.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using AutoMapper;
+using BusinessLogic.DTOs;
 namespace AUTO.Controllers
 {
     public class CarSalonController : Controller
     {
-        public CarSalonDbContext Context { get; set; }
+        private readonly IAutosServices autoServices;
+        private readonly IMapper mapper;
 
-        public CarSalonController(CarSalonDbContext context)
+        public CarSalonController(IAutosServices autosServices, IMapper mapper)
         {
-            this.Context = context;
+            this.autoServices = autosServices;
+            this.mapper = mapper;
         }
 
-        public IActionResult Index()
-        {
-            var autos = Context.Autos.ToList();
+        public IActionResult Index() { return View(autoServices.GetAll); }
 
-            return View(autos);
-        }
-
-        public IActionResult Create()
-        {
-            return View();
-        }
+        public IActionResult Create() { return View(); }
 
         [HttpPost]
-        public IActionResult Create(Auto item)
+        public IActionResult Create(AutoDto item)
         {
             if (!ModelState.IsValid)
             {
                 return View();
             }
 
-            Context.Autos.Add(item);
-            Context.SaveChanges();
+            autoServices.Create(item);
 
             return RedirectToAction(nameof(Index));
         }
-
-        public IActionResult Details(int id)
-        {
-            var auto = Context.Autos.Find(id);
-            if (auto == null) return NotFound();
-
-            Context.Entry(auto);
-
-            return View(auto);
-        }
+    
 
         public IActionResult Details(int id, string? returnUrl)
         {
-            // get product by ID from the db
-            var auto = Context.Autos.Find(id);
+            var auto = autoServices.GetById(id);
             if (auto == null) return NotFound();
-
-            // load related entity
-            Context.Entry(auto).Reference(x => x.Company).Load();
 
             ViewBag.ReturnUrl = returnUrl;
             return View(auto);
+        }
+
+        //public IActionResult Edit(int id)
+        //{
+        //    if (!ModelState.IsValid) { Load()}
+        //}
+
+        public IActionResult Delete(int id)
+        {
+            autoServices.Remove(id);
+            return RedirectToAction(nameof(Index));
         }
 
     }

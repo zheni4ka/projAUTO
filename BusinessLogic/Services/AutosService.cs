@@ -8,8 +8,9 @@ using AutoMapper;
 using DataAccess.Entities;
 using DataAccess;
 using Microsoft.EntityFrameworkCore;
+using BusinessLogic.Interfaces;
 
-namespace BusinessLogic.Interfaces
+namespace BusinessLogic.Services
 {
     internal class AutosService : IAutosServices
     {
@@ -18,7 +19,7 @@ namespace BusinessLogic.Interfaces
         public AutosService(IMapper mapper, CarSalonDbContext db)
         {
             this.mapper = mapper;
-            this.dbContext = db;
+            dbContext = db;
         }
         public void Create(AutoDto product)
         {
@@ -43,7 +44,7 @@ namespace BusinessLogic.Interfaces
             else return;
         }
 
-        public void Edit(AutoDto auto) 
+        public void Edit(AutoDto auto)
         {
             dbContext.Autos.Update(mapper.Map<Auto>(auto));
             dbContext.SaveChanges();
