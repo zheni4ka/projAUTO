@@ -10,10 +10,11 @@ var connStr = builder.Configuration.GetConnectionString("LocalDb");
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<CarSalonDbContext>(opts => opts.UseSqlServer(connStr));
 
+
 builder.Services.AddAutoMapper();
+builder.Services.AddFluentValidators();
+builder.Services.AddCustomServices();
 
-
-// Add services to the container.
 
 var app = builder.Build();
 

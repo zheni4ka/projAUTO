@@ -18,7 +18,9 @@
                 }
            </span>
            <p class="price">@i.Price $</p>
-            <button asp-action="Details" asp-route-id="@i.Id" asp-route-returnUrl="@Context.Request.Path">Learn more</button>
+            <button>
+                <a asp-action="Details" asp-controller="CarSalon" asp-route-id="@i.Id" asp-route-returnUrl="@Context.Request.Path">Learn more..</a>
+            </button>
        </div>
    }
 </div>

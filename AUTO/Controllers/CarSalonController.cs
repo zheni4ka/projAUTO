@@ -16,7 +16,7 @@ namespace AUTO.Controllers
             this.mapper = mapper;
         }
 
-        public IActionResult Index() { return View(autoServices.GetAll); }
+        public IActionResult Index() { return View(autoServices.GetAll()); }
 
         public IActionResult Create() { return View(); }
 
@@ -40,6 +40,7 @@ namespace AUTO.Controllers
             if (auto == null) return NotFound();
 
             ViewBag.ReturnUrl = returnUrl;
+
             return View(auto);
         }
 

@@ -97,9 +97,9 @@ h1
     align-items: center;
 }
 
-    .i img {
-        width: 300%;
-    }
+.i img {
+   width: 100%;
+}
 
 .titlename {
     font-size: 30px;
