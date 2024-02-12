@@ -13,7 +13,7 @@ namespace BusinessLogic.Interfaces
         IEnumerable<AutoDto> Get(IEnumerable<int> ids);
         AutoDto? GetById(int id);
         IEnumerable<CompanyDto> GetAllCompanies();
-        void Create(AutoDto model);
+        void Create(CreateAutoModel model);
         void Edit(AutoDto auto);
         void Remove(int id);
     }

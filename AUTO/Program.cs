@@ -12,6 +12,7 @@ builder.Services.AddDbContext<CarSalonDbContext>(opts => opts.UseSqlServer(connS
 
 
 builder.Services.AddAutoMapper();
+
 builder.Services.AddFluentValidators();
 builder.Services.AddCustomServices();
 

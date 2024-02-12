@@ -21,16 +21,10 @@ namespace BusinessLogic.Services
             this.mapper = mapper;
             dbContext = db;
         }
-        public void Create(AutoDto product)
+        public void Create(CreateAutoModel product)
         {
-
-            if (product != null)
-            {
-                dbContext.Autos.Add(mapper.Map<Auto>(product));
-                dbContext.SaveChanges();
-            }
-            else return;
-
+           dbContext.Autos.Add(mapper.Map<Auto>(product));
+           dbContext.SaveChanges();
         }
 
         public void Remove(int id)

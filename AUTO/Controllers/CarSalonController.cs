@@ -3,6 +3,8 @@ using BusinessLogic.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
 using BusinessLogic.DTOs;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using DataAccess.Entities;
 namespace AUTO.Controllers
 {
     public class CarSalonController : Controller
@@ -14,14 +16,25 @@ namespace AUTO.Controllers
         {
             this.autoServices = autosServices;
             this.mapper = mapper;
+            
+        }
+
+        private void LoadCompanies()
+        {
+            var tmp = autoServices.GetAllCompanies();
+            ViewBag.Companies = new SelectList(tmp, nameof(Company.Id), nameof(Company.Name));
         }
 
         public IActionResult Index() { return View(autoServices.GetAll()); }
 
-        public IActionResult Create() { return View(); }
+        public IActionResult Create() 
+        {
+            LoadCompanies();
+            return View();
+        }
 
         [HttpPost]
-        public IActionResult Create(AutoDto item)
+        public IActionResult Create(CreateAutoModel item)
         {
             if (!ModelState.IsValid)
             {

@@ -124,3 +124,14 @@ h1
     margin-inline: 5%;
     text-wrap: wrap;
 }
+
+label
+{
+    font-size: large;
+}
+
+.inp
+{
+    margin-top: 20px;
+    margin-bottom: 60px;
+}

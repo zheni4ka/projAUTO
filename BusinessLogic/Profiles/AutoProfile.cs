@@ -19,6 +19,9 @@ namespace BusinessLogic.Profiles
                 .ForMember(x => x.Company, opt => opt.Ignore());
 
             CreateMap<Company, CompanyDto>().ReverseMap();
+
+            CreateMap<CreateAutoModel, Auto>()
+                .ForMember(x => x.ImgURL, opt => opt.MapFrom(src => fileService.SaveProductImage(src.Image).Result));
         }
     }
 }
