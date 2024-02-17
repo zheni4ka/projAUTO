@@ -5,8 +5,7 @@ using BusinessLogic.Validators;
 var builder = WebApplication.CreateBuilder(args);
 var connStr = builder.Configuration.GetConnectionString("LocalDb");
 
-// Add services to the container.
-// DI - Dependency Injection
+
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<CarSalonDbContext>(opts => opts.UseSqlServer(connStr));
 

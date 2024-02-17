@@ -7,12 +7,13 @@ using AutoMapper;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using BusinessLogic.Interfaces;
 
 namespace BusinessLogic.Profiles
 {
     public class ApplicationProfile : Profile
     {
-        public ApplicationProfile()
+        public ApplicationProfile(IFileService fileService)
         {
             CreateMap<Auto, AutoDto>();
             CreateMap<AutoDto, Auto>()
@@ -21,7 +22,7 @@ namespace BusinessLogic.Profiles
             CreateMap<Company, CompanyDto>().ReverseMap();
 
             CreateMap<CreateAutoModel, Auto>()
-                .ForMember(x => x.ImgURL, opt => opt.MapFrom(src => fileService.SaveProductImage(src.Image).Result));
+                .ForMember(x => x.ImgURL, opt => opt.MapFrom(src => fileService.SaveAutoImage(src.Image).Result));
         }
     }
 }

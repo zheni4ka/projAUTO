@@ -1,7 +1,17 @@
 ﻿@using BusinessLogic.Interfaces;
 @model AutoDto;
 
+<div class="template">
+
+
+<div class="btn-group" role="group" aria-label="Basic example">
+     <button type="button" class="btn btn-primary">Left</button>
+     <button type="button" class="btn btn-primary">Middle</button>
+     <button type="button" class="btn btn-primary">Right</button>
+</div>
+
 <div class="details">
+
     <div class="i">
         <img src="@Model.ImgURL">
     </div>
@@ -12,6 +22,8 @@
         <span class="smth">Year release...................................................@Model.YearRelease</span>
         <span class="smth">Total speed...................................................@Model.Speed km/h</span>
     </div>
+
 </div>
 <div class="description">@Model.Description</div>
 
+</div>

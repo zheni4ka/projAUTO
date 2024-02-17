@@ -1,6 +1,7 @@
 ﻿using BusinessLogic.Interfaces;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace BusinessLogic.Services
 {
     public class LocalFileService : IFileService
     {
-        private const string imageFolder = "images";
+        private const string imageFolder = "images";                  
         private readonly IWebHostEnvironment environment;
 
         public LocalFileService(IWebHostEnvironment environment)
@@ -19,14 +20,13 @@ namespace BusinessLogic.Services
             this.environment = environment;
         }
 
-        public Task DeleteProductImage(string path)
+        public Task DeleteAutoImage(string path)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<string> SaveProductImage(IFormFile file)
+        public async Task<string> SaveAutoImage(IFormFile file)
         {
-            // get image destination path
             string root = environment.WebRootPath;      // wwwroot
             string name = Guid.NewGuid().ToString();    // random name
             string extension = Path.GetExtension(file.FileName); // get original extension
@@ -36,7 +36,6 @@ namespace BusinessLogic.Services
             string imagePath = Path.Combine(imageFolder, fullName);
             string imageFullPath = Path.Combine(root, imagePath);
 
-            // save image on the folder
             using (FileStream fs = new FileStream(imageFullPath, FileMode.Create))
             {
                 await file.CopyToAsync(fs);

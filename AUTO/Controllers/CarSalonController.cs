@@ -57,10 +57,26 @@ namespace AUTO.Controllers
             return View(auto);
         }
 
-        //public IActionResult Edit(int id)
-        //{
-        //    if (!ModelState.IsValid) { Load()}
-        //}
+        public IActionResult Edit(int id)
+        {
+            var product = autoServices.GetById(id);
+            if (product == null) return NotFound();
+
+            LoadCompanies();
+            return View(product);
+        }
+
+        public IActionResult Edit(AutoDto auto)
+        {
+            if(ModelState.IsValid)
+            {
+                LoadCompanies();
+                return View();
+            }
+            autoServices.Edit(auto);
+
+            return RedirectToAction(nameof(Index));
+        }
 
         public IActionResult Delete(int id)
         {

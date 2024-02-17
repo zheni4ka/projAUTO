@@ -1,4 +1,5 @@
 ﻿using DataAccess.Entities;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,6 @@ namespace BusinessLogic.DTOs
         public int Price { get; set; }
         public string Description { get; set; }
         public int? CompanyId { get; set; }
-        public string ImgURL { get; set; }
+        public IFormFile Image { get; set; }
     }
 }
