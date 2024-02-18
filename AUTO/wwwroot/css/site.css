@@ -92,12 +92,12 @@ h1
     display: flex;
 }
 
-.i {
+.image {
     width: 400px;
     align-items: center;
 }
 
-.i img {
+.image img {
    width: 100%;
 }
 
@@ -130,16 +130,18 @@ h1
     flex-direction: column;
 }
 
-.template .btn-group
+.btns 
 {
-    margin-inline: 50%;
-    margin-top: 100px;
+    padding-inline: 50%;
+    padding-top: 50px;
+    width: 100%;
 }
 
 label
 {
     font-size: large;
 }
+
 
 .inp
 {
