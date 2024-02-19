@@ -57,6 +57,7 @@ namespace AUTO.Controllers
             return View(auto);
         }
 
+        
         public IActionResult Edit(int id)
         {
             var product = autoServices.GetById(id);
@@ -66,6 +67,7 @@ namespace AUTO.Controllers
             return View(product);
         }
 
+        [HttpPost]
         public IActionResult Edit(AutoDto auto)
         {
             if(ModelState.IsValid)

@@ -1,0 +1,59 @@
+﻿@model AutoDto;
+
+<div class="editmenu" asp-action="Edit">
+    <div class="line">
+        <label>@Model.Mark</label>
+        <i class="bi bi-arrow-right-circle-fill"></i>
+        <div class="col-md-2">
+            <input asp-for=Mark type="text" min="0" class="form-control" placeholder="Enter the new mark for car">
+            <span asp-validation-for=Mark class="form-text text-danger"></span>
+        </div>
+    </div>
+
+    <div class="line">
+        <label>@Model.Model</label>
+        <i class="bi bi-arrow-right-circle-fill"></i>
+        <div class="col-md-2">
+            <input asp-for=Mark type="text" min="0" class="form-control" placeholder="Enter the new model for car">
+            <span asp-validation-for=Model class="form-text text-danger"></span>    
+        </div>
+    </div>
+
+    <div class="line">
+        <label>@Model.Speed</label>
+        <i class="bi bi-arrow-right-circle-fill"></i>
+        <div class="col-md-2">
+            <input asp-for=Mark type="text" min="0" class="form-control" placeholder="Enter the new mark for car">
+            <span asp-validation-for=Mark class="form-text text-danger"></span>
+        </div>
+    </div>
+
+    <div class="line">
+        <label>@Model.Price</label>
+        <i class="bi bi-arrow-right-circle-fill"></i>
+        <div class="col-md-2">
+            <input asp-for=Mark type="text" min="0" class="form-control" placeholder="Enter the new mark for car">
+            <span asp-validation-for=Mark class="form-text text-danger"></span>
+        </div>
+    </div>
+
+    <div class="line">
+        <label>@Model.YearRelease</label>
+        <i class="bi bi-arrow-right-circle-fill"></i>
+        <div class="col-md-2">
+            <input asp-for=Mark type="text" min="0" class="form-control" placeholder="Enter the new mark for car">
+            <span asp-validation-for=Mark class="form-text text-danger"></span>
+        </div>
+    </div>
+
+    <div class="line">
+        <label>@Model.Description</label>
+        <i class="bi bi-arrow-right-circle-fill"></i>
+        <div class="col-md-2">
+            <input asp-for=Mark type="text" min="0" class="form-control" placeholder="Enter the new mark for car">
+            <span asp-validation-for=Mark class="form-text text-danger"></span>
+        </div>
+    </div>
+
+
+</div>

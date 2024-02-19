@@ -3,6 +3,19 @@
 
 <div class="template">
 
+    <div class="btn-group">
+
+        <a class="btn btn-dark" asp-controller="CarSalon" asp-action="Edit" asp-route-id="@Model.Id">
+            <i class="bi bi-pencil-fill"></i>
+        </a>
+
+        <a class="btn btn-danger">
+            <i class="bi bi-trash3-fill"></i>
+        </a>
+
+    </div>
+
+
     <div class="details">
 
         <div class="image">
@@ -11,7 +24,7 @@
 
         <div class="info">
             <span class="titlename">@Model.Mark @Model.Model</span>
-            <span class="price">@Model.Price</span>
+            <span class="price">@Model.Price $</span>
             <span class="smth">Year release...................................................@Model.YearRelease</span>
             <span class="smth">Total speed...................................................@Model.Speed km/h</span>
         </div>
@@ -21,17 +34,4 @@
     <div class="description">
         @Model.Description
     </div>
-
-    <div class="btn-group">
-
-        <a class="btn btn-dark">
-            <i class="bi bi-info"></i>
-        </a>
-
-        <a class="btn btn-danger">
-            <i class="bi bi-trash3-fill"></i>
-        </a>
-    </div>
-
-
 </div>
