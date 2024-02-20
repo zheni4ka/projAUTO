@@ -173,5 +173,12 @@ label {
 .line
 {
     display: flex;
+    justify-content: space-between;
     flex-direction: row;
+    padding-inline: auto;
+}
+
+.line label
+{
+    font-size: 30px;
 }

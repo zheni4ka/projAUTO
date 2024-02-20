@@ -5,7 +5,7 @@
         <label>@Model.Mark</label>
         <i class="bi bi-arrow-right-circle-fill"></i>
         <div class="col-md-2">
-            <input asp-for=Mark type="text" min="0" class="form-control" placeholder="Enter the new mark for car">
+            <input asp-for=Mark type="text" min="0" class="form-control" placeholder="Enter the new mark for car"/>
             <span asp-validation-for=Mark class="form-text text-danger"></span>
         </div>
     </div>
@@ -14,7 +14,7 @@
         <label>@Model.Model</label>
         <i class="bi bi-arrow-right-circle-fill"></i>
         <div class="col-md-2">
-            <input asp-for=Mark type="text" min="0" class="form-control" placeholder="Enter the new model for car">
+            <input asp-for=Model type="text" min="0" class="form-control" placeholder="Enter the new model for car"/>
             <span asp-validation-for=Model class="form-text text-danger"></span>    
         </div>
     </div>
@@ -23,8 +23,8 @@
         <label>@Model.Speed</label>
         <i class="bi bi-arrow-right-circle-fill"></i>
         <div class="col-md-2">
-            <input asp-for=Mark type="text" min="0" class="form-control" placeholder="Enter the new mark for car">
-            <span asp-validation-for=Mark class="form-text text-danger"></span>
+            <input asp-for=Speed type="number" min="0" class="form-control" placeholder="Enter the new speed(km/h) for car"/>
+            <span asp-validation-for=Speed class="form-text text-danger"></span>
         </div>
     </div>
 
@@ -32,8 +32,8 @@
         <label>@Model.Price</label>
         <i class="bi bi-arrow-right-circle-fill"></i>
         <div class="col-md-2">
-            <input asp-for=Mark type="text" min="0" class="form-control" placeholder="Enter the new mark for car">
-            <span asp-validation-for=Mark class="form-text text-danger"></span>
+            <input asp-for=Price type="number" min="0" class="form-control" placeholder="Enter the new price for car"/>
+            <span asp-validation-for=Price class="form-text text-danger"></span>
         </div>
     </div>
 
@@ -41,17 +41,17 @@
         <label>@Model.YearRelease</label>
         <i class="bi bi-arrow-right-circle-fill"></i>
         <div class="col-md-2">
-            <input asp-for=Mark type="text" min="0" class="form-control" placeholder="Enter the new mark for car">
-            <span asp-validation-for=Mark class="form-text text-danger"></span>
+            <input asp-for=YearRelease type="number" min="0" class="form-control" placeholder="Enter the new year for car"/>
+            <span asp-validation-for=YearRelease class="form-text text-danger"></span>
         </div>
     </div>
 
     <div class="line">
-        <label>@Model.Description</label>
+        <p>@Model.Description</p>
         <i class="bi bi-arrow-right-circle-fill"></i>
         <div class="col-md-2">
-            <input asp-for=Mark type="text" min="0" class="form-control" placeholder="Enter the new mark for car">
-            <span asp-validation-for=Mark class="form-text text-danger"></span>
+            <textarea asp-for=Description class="form-control" placeholder="Enter the new description for car"/>
+            <span asp-validation-for=Description class="form-text text-danger"></span>
         </div>
     </div>
 
