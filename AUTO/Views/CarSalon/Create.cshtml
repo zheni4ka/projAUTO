@@ -1,56 +1,51 @@
 ﻿@model CreateAutoModel;
 
-<form asp-action="Create" enctype="multipart/form-data">
+<form asp-action="Create" enctype="multipart/form-data" class="mx-auto" style="max-width: 480px;">
 
-
-    <select class="Select-comps" asp-for=CompanyId asp-items="ViewBag.Companies">
-        <option disabled selected>Choose a company...</option>
-    </select>
+    <h2 class="mb-4 text-center">Add New Car</h2>
 
     <div class="form-floating mb-3">
-        <input asp-for=Mark type="text" class="form-control" id="floatingInput" placeholder="Mark here">
-        <label asp-for=Mark>Enter mark</label>
-        <span asp-validation-for=Mark class="form-text text-danger"></span>
+        <input asp-for="Mark" type="text" class="form-control" id="Mark" placeholder="Mark" />
+        <label asp-for="Mark" for="Mark">Enter mark</label>
+        <span asp-validation-for="Mark" class="form-text text-danger"></span>
     </div>
 
     <div class="form-floating mb-3">
-        <input asp-for=Model type="text" class="form-control" id="floatingInput" placeholder="Model here">
-        <label asp-for=Model>Enter model</label>
-        <span asp-validation-for=Model class="form-text text-danger"></span>
+        <input asp-for="Model" type="text" class="form-control" id="Model" placeholder="Model" />
+        <label asp-for="Model" for="Model">Enter model</label>
+        <span asp-validation-for="Model" class="form-text text-danger"></span>
     </div>
 
     <div class="form-floating mb-3">
-        <input asp-for=YearRelease type="number" class="form-control" id="floatingInput" placeholder="Year here">
-        <label asp-for=YearRelease>Enter year release</label>
-        <span asp-validation-for=YearRelease class="form-text text-danger"></span>
+        <input asp-for="YearRelease" type="number" min="1886" max="@DateTime.Now.Year" class="form-control" id="YearRelease" placeholder="Year Release" />
+        <label asp-for="YearRelease" for="YearRelease">Enter year release</label>
+        <span asp-validation-for="YearRelease" class="form-text text-danger"></span>
     </div>
 
     <div class="form-floating mb-3">
-        <input asp-for=Speed type="number" class="form-control" id="floatingInput" placeholder="Speed here">
-        <label asp-for=Speed>Enter speed (km/h)</label>
-        <span asp-validation-for=Speed class="form-text text-danger"></span>
+        <input asp-for="Speed" type="number" min="0" class="form-control" id="Speed" placeholder="Speed (km/h)" />
+        <label asp-for="Speed" for="Speed">Enter speed (km/h)</label>
+        <span asp-validation-for="Speed" class="form-text text-danger"></span>
     </div>
 
     <div class="form-floating mb-3">
-        <input asp-for=Price type="number" class="form-control" id="floatingInput" placeholder="Price here">
-        <label asp-for=Price>Enter price</label>
-        <span asp-validation-for=Price class="form-text text-danger"></span>
+        <input asp-for="Price" type="number" min="0" class="form-control" id="Price" placeholder="Price" />
+        <label asp-for="Price" for="Price">Enter price</label>
+        <span asp-validation-for="Price" class="form-text text-danger"></span>
     </div>
 
-
-    <div class="col-12">
-        <label asp-for=Description class="form-label">Description</label>
-        <textarea asp-for=Description class="form-control" rows="3" placeholder="Enter description"></textarea>
-        <span asp-validation-for=Description class="form-text text-danger"></span>
+    <div class="mb-3">
+        <label asp-for="Description" class="form-label">Description</label>
+        <textarea asp-for="Description" class="form-control" rows="4" placeholder="Enter description"></textarea>
+        <span asp-validation-for="Description" class="form-text text-danger"></span>
     </div>
 
-    <div class="form-floating mb-3">
-        <input asp-for=Image type="file" class="form-control" id="floatingInput">
-        <label asp-for=Image></label>
-        <span asp-validation-for=Image class="form-text text-danger"></span>
-    </div> 
+    <div class="mb-4">
+        <label asp-for="Image" class="form-label">Upload Image</label>
+        <input asp-for="Image" type="file" class="form-control" />
+        <span asp-validation-for="Image" class="form-text text-danger"></span>
+    </div>
 
-
-    <button type="submit" class="btn btn-success w-100">Create New Auto</button>
+    <button type="submit" class="btn btn-success w-100 py-2 fs-5">Create New Auto</button>
 
 </form>

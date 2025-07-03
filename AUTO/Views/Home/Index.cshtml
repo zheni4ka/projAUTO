@@ -1,1 +1,17 @@
-﻿
+﻿@{
+    ViewData["Title"] = "Welcome to AutoSite";
+}
+
+<div class="vh-100 d-flex flex-column justify-content-center align-items-center text-center text-white"
+     style="background: url('https://northfleet.in/wp-content/uploads/2024/10/Types-of-Cars-in-India.webp') no-repeat center center; background-size: cover;">
+
+    <div class="bg-dark bg-opacity-75 p-4 rounded">
+        <h1 class="display-4 fw-bold mb-3">Find Your Dream Car</h1>
+        <p class="lead mb-4">Browse, buy, or sell the best cars around.</p>
+
+        <a asp-controller="CarSalon" asp-action="Index" class="btn btn-primary btn-lg px-4">
+            View Cars
+        </a>
+    </div>
+
+</div>

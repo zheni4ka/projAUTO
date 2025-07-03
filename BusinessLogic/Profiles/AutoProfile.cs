@@ -16,10 +16,7 @@ namespace BusinessLogic.Profiles
         public ApplicationProfile(IFileService fileService)
         {
             CreateMap<Auto, AutoDto>();
-            CreateMap<AutoDto, Auto>()
-                .ForMember(x => x.Company, opt => opt.Ignore());
-
-            CreateMap<Company, CompanyDto>().ReverseMap();
+            CreateMap<AutoDto, Auto>();
 
             CreateMap<CreateAutoModel, Auto>()
                 .ForMember(x => x.ImgURL, opt => opt.MapFrom(src => fileService.SaveAutoImage(src.Image).Result));

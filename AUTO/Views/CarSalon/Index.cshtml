@@ -1,26 +1,35 @@
 ﻿@model List<AutoDto>;
 
-<div class="d-flex flex-wrap">
-   @foreach (var i in Model)
-   {
-       <div class="showauto">
-           <img src="@i.ImgURL" alt="">
-           <span>
-                @if(i.Model.Length > 15)
-                {
-                    string tmp = (i.Model.Substring(0, 6) + "...");
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Available Cars</h2>
 
-                    <p>@i.Mark @tmp (@i.YearRelease)</p>
-                }
-                else 
-                {
-                    <p>@i.Mark @i.Model (@i.YearRelease)</p>
-                }
-           </span>
-           <p class="price">@i.Price $</p>
-            <button>
-                <a asp-action="Details" asp-controller="CarSalon" asp-route-id="@i.Id" asp-route-returnUrl="@Context.Request.Path">Learn more..</a>
-            </button>
-       </div>
-   }
+    <div class="row g-4">
+        @foreach (var car in Model)
+        {
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card h-100 shadow-sm border-0">
+                    <img src="@car.ImgURL" class="card-img-top img-fluid" style="height: 180px; object-fit: cover;" alt="Car Image">
+
+                    <div class="card-body d-flex flex-column">
+                        <h6 class="card-title">
+                            @car.Mark
+                            @{
+                                var modelDisplay = car.Model.Length > 15 ? car.Model.Substring(0, 12) + "..." : car.Model;
+                            }
+                            @modelDisplay (@car.YearRelease)
+                        </h6>
+
+                        <p class="card-text fw-bold text-success mt-auto">@car.Price $</p>
+
+                        <a asp-action="Details" asp-controller="CarSalon"
+                           asp-route-id="@car.Id"
+                           asp-route-returnUrl="@Context.Request.Path"
+                           class="btn btn-primary btn-sm mt-2 w-100">
+                            Learn more
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 </div>

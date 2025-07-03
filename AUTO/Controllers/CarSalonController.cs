@@ -19,17 +19,11 @@ namespace AUTO.Controllers
             
         }
 
-        private void LoadCompanies()
-        {
-            var tmp = autoServices.GetAllCompanies();
-            ViewBag.Companies = new SelectList(tmp, nameof(Company.Id), nameof(Company.Name));
-        }
 
         public IActionResult Index() { return View(autoServices.GetAll()); }
 
         public IActionResult Create() 
         {
-            LoadCompanies();
             return View();
         }
 
@@ -63,7 +57,6 @@ namespace AUTO.Controllers
             var product = autoServices.GetById(id);
             if (product == null) return NotFound();
 
-            LoadCompanies();
             return View(product);
         }
 
@@ -72,7 +65,6 @@ namespace AUTO.Controllers
         {
             if(ModelState.IsValid)
             {
-                LoadCompanies();
                 return View();
             }
             autoServices.Edit(auto);

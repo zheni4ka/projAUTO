@@ -1,37 +1,46 @@
 ﻿@using BusinessLogic.Interfaces;
 @model AutoDto;
 
-<div class="template">
+<div class="container mt-5">
 
-    <div class="btn-group">
-
-        <a class="btn btn-dark" asp-controller="CarSalon" asp-action="Edit" asp-route-id="@Model.Id">
-            <i class="bi bi-pencil-fill"></i>
-        </a>
-
-        <a class="btn btn-danger">
-            <i class="bi bi-trash3-fill"></i>
-        </a>
-
+    <div class="d-flex justify-content-end mb-3">
+        <div class="btn-group">
+            <a class="btn btn-outline-dark" asp-controller="CarSalon" asp-action="Edit" asp-route-id="@Model.Id" title="Edit">
+                <i class="bi bi-pencil-fill"></i>
+            </a>
+            <a class="btn btn-outline-danger" asp-controller="CarSalon" asp-action="Delete" asp-route-id="@Model.Id" title="Delete">
+                <i class="bi bi-trash3-fill"></i>
+            </a>
+        </div>
     </div>
 
-
-    <div class="details">
-
-        <div class="image">
-            <img src="@Model.ImgURL">
+    <div class="row g-4 align-items-start">
+        <!-- Car Image -->
+        <div class="col-md-5">
+            <img src="@Model.ImgURL" class="img-fluid rounded shadow" alt="Car image" />
         </div>
 
-        <div class="info">
-            <span class="titlename">@Model.Mark @Model.Model</span>
-            <span class="price">@Model.Price $</span>
-            <span class="smth">Year release...................................................@Model.YearRelease</span>
-            <span class="smth">Total speed...................................................@Model.Speed km/h</span>
-        </div>
+        <!-- Car Info -->
+        <div class="col-md-7">
+            <h2 class="fw-bold">@Model.Mark @Model.Model</h2>
+            <p class="fs-5 text-success fw-semibold">@Model.Price $</p>
 
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>Year Release:</span>
+                    <span>@Model.YearRelease</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>Total Speed:</span>
+                    <span>@Model.Speed km/h</span>
+                </li>
+            </ul>
+        </div>
     </div>
 
-    <div class="description">
-        @Model.Description
+    <!-- Description -->
+    <div class="mt-4">
+        <h5>Description</h5>
+        <p class="text-muted">@Model.Description</p>
     </div>
 </div>

@@ -49,7 +49,6 @@ namespace BusinessLogic.Services
             var item = dbContext.Autos.Find(id);
             if (item != null)
             {
-                dbContext.Entry(item).Reference(x => x.Company).Load();
                 return mapper.Map<AutoDto>(item);
             }
             else return null;
@@ -58,20 +57,15 @@ namespace BusinessLogic.Services
         public IEnumerable<AutoDto> Get(IEnumerable<int> ids)
         {
             return mapper.Map<List<AutoDto>>(dbContext.Autos
-                .Include(x => x.Company)
                 .Where(x => ids.Contains(x.Id))
                 .ToList());
         }
 
         public IEnumerable<AutoDto> GetAll()
         {
-            return mapper.Map<List<AutoDto>>(dbContext.Autos.Include(x => x.Company).ToList());
+            return mapper.Map<List<AutoDto>>(dbContext.Autos.ToList());
         }
 
-        public IEnumerable<CompanyDto> GetAllCompanies()
-        {
-            return mapper.Map<List<CompanyDto>>(dbContext.Companies.ToList());
-        }
 
     }
 }
